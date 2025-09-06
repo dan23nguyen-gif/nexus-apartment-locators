@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nexus Apartment Locators</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: #ffffff;
+      color: #1a1a1a;
+    }
+    header {
+      background-color: #fdfdfd;
+      color: #1a73e8;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      border-bottom: 1px solid #e0e0e0;
+    }
+    .logo h1 {
+      font-size: 1.75rem;
+      margin: 0;
+      color: #1a73e8;
+    }
+    nav a {
+      color: #1a73e8;
+      margin-left: 1.5rem;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+    nav a:hover {
+      color: #0b59d5;
+      text-decoration: underline;
+    }
+    main {
+      padding: 2rem;
+      background-color: #fafafa;
+    }
+    h2 {
+      text-align: center;
+      color: #1a73e8;
+      margin-top: 3rem;
+      font-size: 1.8rem;
+    }
+    p {
+      text-align: center;
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+      color: #444;
+    }
+    form {
+      max-width: 650px;
+      margin: 0 auto 3rem;
+      background: #ffffff;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+    input, textarea, button {
+      padding: 0.85rem;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+    }
+    textarea {
+      resize: vertical;
+    }
+    button {
+      background: #1a73e8;
+      color: #fff;
+      font-weight: 600;
+      cursor: pointer;
+      border: none;
+      transition: background 0.3s ease;
+    }
+    button:hover {
+      background: #0b59d5;
+    }
+    section {
+      margin-bottom: 4rem;
+    }
+    .guidelines ul {
+      max-width: 700px;
+      margin: 0 auto;
+      background: #ffffff;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      line-height: 1.8;
+    }
+    .success-message {
+      text-align: center;
+      font-size: 1.2rem;
+      color: green;
+      font-weight: bold;
+      padding: 1rem 0;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #ddd;
+      margin: 4rem 0;
+    }
+    footer {
+      background: #f2f2f2;
+      color: #666;
+      padding: 2rem;
+      font-size: 0.95rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    footer p {
+      margin: 0;
+    }
+  </style>
+  <script>
+    function showSuccess(formId) {
+      const form = document.getElementById(formId);
+      form.innerHTML = '<div class="success-message">Thank you! Your submission has been received.</div>';
+      return false;
+    }
+  </script>
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <h1>Nexus Apartment Locators</h1>
+    </div>
+    <nav>
+      <a href="#inquiry">Find an Apartment</a>
+      <a href="#rebate">Rebate</a>
+      <a href="#referral">Referral</a>
+    </nav>
+  </header>
+
+  <main>
+    <section id="inquiry">
+      <h2>Let Us Help You Find Your Next Apartment</h2>
+      <p>Your locator, <strong>Dan Nguyen</strong>, is ready to assist you. Fill out the form below and we'll be in touch shortly!</p>
+      <form id="inquiry-form" action="https://formspree.io/f/mnqegzno" method="POST">
+        <input type="text" name="Full Name" placeholder="Full Name" required />
+        <input type="email" name="Email" placeholder="Email Address" required />
+        <input type="tel" name="Phone" placeholder="Phone Number" required />
+        <input type="text" name="Location" placeholder="Desired Location (City or Area)" required />
+        <input type="text" name="Bedrooms" placeholder="Number of Bedrooms" required />
+        <textarea name="Notes" rows="4" placeholder="Additional Notes (Budget, Pet Info, Move-in Date, etc.)"></textarea>
+        <button type="submit">Submit Inquiry</button>
+      </form>
+    </section>
+
+    <hr />
+
+    <section id="rebate">
+      <h2>Rebate Qualifications</h2>
+      <div class="guidelines">
+        <ul>
+          <li>You must list <strong>Dan Nguyen</strong> on your guest card and rental application.</li>
+          <li>Rent under $999 qualifies for a <strong>$50 rebate</strong>.</li>
+          <li>Rent between $1,000–$1,499 qualifies for a <strong>$100 rebate</strong>.</li>
+          <li>Rent of $1,500 or more qualifies for a <strong>$200 rebate</strong>.</li>
+          <li>Submit your rebate request within <strong>15 days</strong> of your lease start date.</li>
+        </ul>
+      </div>
+      <form id="rebate-form" action="https://formspree.io/f/mnqegzno" method="POST">
+        <input type="text" name="Full Name" placeholder="Full Name" required />
+        <input type="email" name="Email" placeholder="Email Address" required />
+        <input type="text" name="Apartment Name" placeholder="Apartment Name" required />
+        <input type="date" name="Lease Date" placeholder="Lease Start Date" required />
+        <input type="number" name="Rent" placeholder="Monthly Rent Amount" required />
+        <button type="submit">Submit Rebate Request</button>
+      </form>
+    </section>
+
+    <hr />
+
+    <section id="referral">
+      <h2>Referral Program</h2>
+      <div class="guidelines">
+        <ul>
+          <li>Earn a $50 gift card for every friend you refer who leases through us.</li>
+          <li>Your friend must mention <strong>Dan Nguyen</strong> on their application and guest card.</li>
+          <li>Referral reward sent after your friend’s lease is verified.</li>
+        </ul>
+      </div>
+      <form id="referral-form" action="https://formspree.io/f/mnqegzno" method="POST">
+        <input type="text" name="Your Name" placeholder="Your Full Name" required />
+        <input type="email" name="Your Email" placeholder="Your Email" required />
+        <input type="text" name="Friend Name" placeholder="Friend's Full Name" required />
+        <input type="email" name="Friend Email" placeholder="Friend's Email" required />
+        <button type="submit">Submit Referral</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Nexus Apartment Locators. All rights reserved.</p>
+    <p style="text-align:right">Contact: <a href="mailto:dan@nexuslocators.com">dan@nexuslocators.com</a> | (972) 802-0119</p>
+  </footer>
+</body>
+</html>
